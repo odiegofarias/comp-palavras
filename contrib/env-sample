@@ -1,0 +1,3 @@
+DEBUG=False
+SECRET_KEY=Chave Secreta
+ALLOWED_HOSTS=suas urls

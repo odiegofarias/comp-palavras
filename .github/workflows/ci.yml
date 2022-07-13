@@ -1,0 +1,36 @@
+name: Composição de palavras - Django
+
+on: [push]
+
+env:
+  DEBUG: ${{ secrets.DEBUG }}
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10.5'
+    - name: Variáveis de ambiente
+      env:
+        DEBUG: ${{ secrets.DEBUG }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+      run: |
+        echo $DEBUG
+        echo $SECRET_KEY
+        echo $ALLOWED_HOSTS
+    - name: Instalando dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest 
+    - name: Rodar testes automáticos
+      run: pytest palavras
