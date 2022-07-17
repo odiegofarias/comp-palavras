@@ -5,7 +5,7 @@ from pytest_django.asserts import assertContains
 
 
 @pytest.fixture
-def resposta(client):
+def resposta(client, db):
     resp = client.get(reverse('palavras:home'))
     return resp
 
