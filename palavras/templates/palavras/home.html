@@ -25,24 +25,22 @@
     </style>
     <div class="container">
         <div class="row">
-            <h1 class="mt-5 text-center ">PALAVRA</h1>
+            <h1 class="mt-5 text-center " name="escolha">MULTILASER</h1>
             <form action="{% url 'palavras:home' %}" method="post">
                 {% csrf_token %}
                 <div class="input-group mb-3">
                     <input type="text" class="form-control mt-3" placeholder="Palavra" aria-label="palavra" aria-describedby="button-addon2" name="nome">
-                    <button type="submit" class="btn btn-success mt-3"  id="button-addon2">Salvar</button>    
+                    <button type="submit" class="btn btn-success mt-3"  id="button-addon2">Salvar</button>
                 </div>    
-            </form>   
-        </div>
-         
-        
-        <ol class="list-group">
-            {% for palavra in palavras %}
-                <li class="list-group-item">{{ palavra.nome }}</li>      
-            {% endfor %}
-        </ol>
+            </form>  
+            <ol class="list-group">
+                {% for palavra in palavras %}
+                    <li class="list-group-item">{{ palavra.nome }}</li>      
+                {% endfor %}
+            </ol> 
+        </div>   
     
-        
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

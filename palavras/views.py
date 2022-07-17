@@ -7,7 +7,7 @@ from .forms import PalavraNovaForm
 
 
 # Create your views here.
-def home(request):
+def home(request): 
     if request.method == 'POST':
         form = PalavraNovaForm(request.POST)
         if form.is_valid():
@@ -24,7 +24,7 @@ def home(request):
                     'palavras': palavras,
                 },status=400
             )
-    
+            
     palavras = Palavra.objects.all()
     return render(request, 'palavras/home.html', {'palavras': palavras})
 
